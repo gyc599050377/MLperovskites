@@ -48,7 +48,7 @@ def generate_lattconst_wf( list_elt_sets, functional='PBE', vasp_cmd = '>>vasp_c
     for elt_set in list_elt_sets:
         if functional == 'SCAN':
             compkey = Composition({elt_set[0]: 1, elt_set[1]: 1, elt_set[2]: 3})
-            lattconst = scan_smart_lattice[compkey]
+            lattconst = scan_smart_lattice[compkey.reduced_formula]
         else:
             lattconst = None
         pp = PerfectPerovskite( Asite=elt_set[0], Bsite=elt_set[1], Osite=elt_set[2],
